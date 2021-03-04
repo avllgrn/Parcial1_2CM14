@@ -1,71 +1,21 @@
 #include <iostream>
-#include <stdio.h>
+#include <math.h>
 using namespace std;
 
 int main(void){
-    printf("Hello world!\n");
-    cout << "Hello world!" << endl
-         << "Otra linea debajo" << endl
-         << "Una mas debajo"
-         << "La ultima no esta debajo";
+//    Codifica un programa en C++ (cin y cout) que calcule la distancia
+//    entre dos puntos en un plano cartesiano
 
-    system("pause");
-    system("cls");
+    double x1,y1,x2,y2,d;
 
-    int a = 3;
-    float b = 4.5;
-    char c = '@';
+    cout<<"Dame x1 ";cin>>x1;
+    cout<<"Dame y1 ";cin>>y1;
+    cout<<"Dame x2 ";cin>>x2;
+    cout<<"Dame y2 ";cin>>y2;
 
-    cout<<a<<endl
-        <<b<<endl
-        <<c<<endl<<endl;
+    d = sqrt( pow(x2-x1, 2) + pow(y2-y1, 2));
 
-    cout<<a*2<<endl
-        <<b-1.1<<endl
-        <<c<<" y algo"<<endl<<endl;
-
-    cout<<"a = "<<a<<endl
-        <<"b = "<<b<<endl
-        <<"c = "<<c<<endl<<endl;
-
-
-    system("pause");
-    system("cls");
-
-    cout<<"Dame un numero ";
-    cin>>a;
-    cout<<"Dame otro numero ";
-    cin>>b;
-    cout<<"Dame un simbolo ";
-    cin>>c;
-
-    cout<<"a = "<<a<<endl
-        <<"b = "<<b<<endl
-        <<"c = "<<c<<endl<<endl;
-
-    system("pause");
-    system("cls");
-
-    cout<<"Dame un entero, un flotante y un caracter ";
-    cin>>a>>b>>c;
-
-    cout<<"a = "<<a<<endl
-        <<"b = "<<b<<endl
-        <<"c = "<<c<<endl<<endl;
-
-
-    system("pause");
-    system("cls");
-
-    char V[10];
-
-    for(int i=0;i<10;i++){
-        cout<<"Ingresa V["<<i<<"] ";
-        cin>>V[i];
-    }
-    for(int j=0;j<10;j++){
-        cout<<"V["<<j<<"] = "<<V[j]<<endl;
-    }
+    cout<<"d = "<<d<<endl;
 
     return 0;
 }

@@ -77,19 +77,23 @@ public:
 
 
 int main(void){
-    Punto P1, P2;
-    double d;
 
+    Punto P1, P2;
+    double m;
+
+    P1.muestraTusDatos();
+    P2.muestraTusDatos();
+
+    cout<<"Ingresa P1"<<endl;
     P1.pideleAlUsuarioTusDatos();
+    cout<<"Ingresa P2"<<endl;
     P2.pideleAlUsuarioTusDatos();
 
-    d = sqrt(
-            pow(P2.dameTuX()-P1.dameTuX(),2)
-             +
-            pow(P2.dameTuY()-P1.dameTuY(),2)
-        );
+    m = (P2.dameTuY()-P1.dameTuY())
+        /
+        (P2.dameTuX()-P1.dameTuX());
 
-    cout << "d = " << d << endl;
+    cout<<"m = "<<m<<endl;
 
     return 0;
 }

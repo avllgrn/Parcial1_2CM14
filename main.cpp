@@ -78,22 +78,27 @@ public:
 
 int main(void){
 
-    Punto P1, P2;
-    double m;
+    //Codifica un programa que sume dos puntos en un plano cartesiano
+    Punto A, B, C;
 
-    P1.muestraTusDatos();
-    P2.muestraTusDatos();
+    cout<<"A";A.muestraTusDatos();cout<<endl;
+    cout<<"B";B.muestraTusDatos();cout<<endl;
+    cout<<"C";C.muestraTusDatos();cout<<endl;
+    system("pause");
+    system("cls");
 
-    cout<<"Ingresa P1"<<endl;
-    P1.pideleAlUsuarioTusDatos();
-    cout<<"Ingresa P2"<<endl;
-    P2.pideleAlUsuarioTusDatos();
+    cout<<"A"<<endl;
+    A.pideleAlUsuarioTusDatos();
+    cout<<"B"<<endl;
+    B.pideleAlUsuarioTusDatos();
 
-    m = (P2.dameTuY()-P1.dameTuY())
-        /
-        (P2.dameTuX()-P1.dameTuX());
+    C.modificaTuX( A.dameTuX() + B.dameTuX() );
+    C.modificaTuY( A.dameTuY() + B.dameTuY() );
 
-    cout<<"m = "<<m<<endl;
+    system("cls");
+    cout<<"\tA";A.muestraTusDatos();cout<<endl;
+    cout<<"+\tB";B.muestraTusDatos();cout<<endl;
+    cout<<"=\tC";C.muestraTusDatos();cout<<endl;
 
     return 0;
 }

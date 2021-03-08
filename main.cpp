@@ -78,27 +78,41 @@ public:
 
 int main(void){
 
-    //Codifica un programa que sume dos puntos en un plano cartesiano
-    Punto A, B, C;
+    //Codifica un programa que pida las coordenadas de un punto
+    //en un plano cartesiano y diga en cual cuadrante esta.
 
-    cout<<"A";A.muestraTusDatos();cout<<endl;
-    cout<<"B";B.muestraTusDatos();cout<<endl;
-    cout<<"C";C.muestraTusDatos();cout<<endl;
-    system("pause");
-    system("cls");
+    Punto A;
 
-    cout<<"A"<<endl;
+    cout<<"Ingresa el Punto"<<endl;
     A.pideleAlUsuarioTusDatos();
-    cout<<"B"<<endl;
-    B.pideleAlUsuarioTusDatos();
 
-    C.modificaTuX( A.dameTuX() + B.dameTuX() );
-    C.modificaTuY( A.dameTuY() + B.dameTuY() );
-
-    system("cls");
-    cout<<"\tA";A.muestraTusDatos();cout<<endl;
-    cout<<"+\tB";B.muestraTusDatos();cout<<endl;
-    cout<<"=\tC";C.muestraTusDatos();cout<<endl;
+    if(A.dameTuX() > 0 && A.dameTuY() > 0){
+        cout<<"El Punto esta en el cuadrante I"<<endl;
+    }
+    else if(A.dameTuX() < 0 && A.dameTuY() > 0){
+        cout<<"El Punto esta en el cuadrante II"<<endl;
+    }
+    else if(A.dameTuX() < 0 && A.dameTuY() < 0){
+        cout<<"El Punto esta en el cuadrante III"<<endl;
+    }
+    else if(A.dameTuX() > 0 && A.dameTuY() < 0){
+        cout<<"El Punto esta en el cuadrante IV"<<endl;
+    }
+    else if(A.dameTuX() > 0 && A.dameTuY() == 0){
+        cout<<"El Punto esta sobre X+"<<endl;
+    }
+    else if(A.dameTuX() < 0 && A.dameTuY() == 0){
+        cout<<"El Punto esta sobre X-"<<endl;
+    }
+    else if(A.dameTuX() == 0 && A.dameTuY() > 0){
+        cout<<"El Punto esta sobre Y+"<<endl;
+    }
+    else if(A.dameTuX() == 0 && A.dameTuY() < 0){
+        cout<<"El Punto esta sobre Y-"<<endl;
+    }
+    else{
+        cout<<"El Punto esta en el origen"<<endl;
+    }
 
     return 0;
 }

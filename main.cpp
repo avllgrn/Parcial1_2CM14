@@ -74,50 +74,91 @@ public:
 
 
 
-void calculaCuadrante(Punto A);
+int calculaCuadrante(Punto A);
+double calculaDistanciaEntre(Punto A, Punto B);
+double calculaPendienteDados(Punto A, Punto B);
+Punto suma(Punto A, Punto B);
+Punto resta(Punto A, Punto B);
 
 int main(void){
+    Punto A, B, C, D;
+    double d, m;
 
-    //Codifica un programa que pida las coordenadas de un punto
-    //en un plano cartesiano y diga en cual cuadrante esta,
-    //con una funcion de usuario.
+    cout<<"Ingresa A"<<endl;
+    A.pideleAlUsuarioTusDatos();
+    cout<<"Ingresa B"<<endl;
+    B.pideleAlUsuarioTusDatos();
 
-    Punto P;
+    d = calculaDistanciaEntre(A,B);
+    m = calculaPendienteDados(A,B);
 
-    cout<<"Ingresa el Punto"<<endl;
-    P.pideleAlUsuarioTusDatos();
+    C = suma(A,B);
+    D = resta(A,B);
 
-    calculaCuadrante(P);
+    cout<<"d\t= "<<d<<endl
+        <<"m\t= "<<m<<endl;
+    cout<<"A+B\t= ";C.muestraTusDatos();cout<<endl;
+    cout<<"A-B\t= ";D.muestraTusDatos();cout<<endl;
 
     return 0;
 }
 
-void calculaCuadrante(Punto A){
+double calculaDistanciaEntre(Punto A, Punto B){
+    return sqrt(
+        pow(B.dameTuY()-A.dameTuY(), 2)
+        +
+        pow(B.dameTuX()-A.dameTuX(), 2)
+    );
+}
+double calculaPendienteDados(Punto A, Punto B){
+    return  (B.dameTuY()-A.dameTuY())
+            /
+            (B.dameTuX()-A.dameTuX());
+}
+Punto suma(Punto A, Punto B){
+    Punto C;
+    C.modificaTusDatos(
+        A.dameTuX()+B.dameTuX()
+        ,
+        A.dameTuY()+B.dameTuY()
+    );
+    return C;
+}
+Punto resta(Punto A, Punto B){
+    Punto C;
+    C.modificaTusDatos(
+        A.dameTuX()-B.dameTuX()
+        ,
+        A.dameTuY()-B.dameTuY()
+    );
+    return C;
+}
+int calculaCuadrante(Punto A){
     if(A.dameTuX() > 0 && A.dameTuY() > 0){
-        cout<<"El Punto esta en el cuadrante I"<<endl;
+        return 1;
     }
     else if(A.dameTuX() < 0 && A.dameTuY() > 0){
-        cout<<"El Punto esta en el cuadrante II"<<endl;
+        return 2;
     }
     else if(A.dameTuX() < 0 && A.dameTuY() < 0){
-        cout<<"El Punto esta en el cuadrante III"<<endl;
+        return 3;
     }
     else if(A.dameTuX() > 0 && A.dameTuY() < 0){
-        cout<<"El Punto esta en el cuadrante IV"<<endl;
+        return 4;
     }
     else if(A.dameTuX() > 0 && A.dameTuY() == 0){
-        cout<<"El Punto esta sobre X+"<<endl;
+        return 5;
     }
     else if(A.dameTuX() < 0 && A.dameTuY() == 0){
-        cout<<"El Punto esta sobre X-"<<endl;
+        return 6;
     }
     else if(A.dameTuX() == 0 && A.dameTuY() > 0){
-        cout<<"El Punto esta sobre Y+"<<endl;
+        return 7;
     }
     else if(A.dameTuX() == 0 && A.dameTuY() < 0){
-        cout<<"El Punto esta sobre Y-"<<endl;
+        return 8;
     }
     else{
-        cout<<"El Punto esta en el origen"<<endl;
+        return 0;
     }
 }

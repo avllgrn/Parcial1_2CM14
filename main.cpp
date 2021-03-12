@@ -2,52 +2,41 @@
 #include <stdlib.h>
 #include <time.h>
 #include <fstream>
+#include "Punto.h"
 using namespace std;
 
 int main(void){
     srand(time(NULL));
 
-    int V[100], V2[100], i, n;
+    Punto Q;
 
-    cout<<"Ingresa n ";cin>>n;
-
-    for(i=0;i<n;i++)
-        cout<<"V2["<<i<<"] = "<<V[i]<<endl;
+    cout<<"Q";
+    Q.muestraTusDatos();
     cout<<endl<<endl;
 
-    for(i=0;i<n;i++)
-        V[i] = (rand()%100);
+    Q.modificaTusDatos(rand()%100, rand()%100);
+
+    cout<<"Q";
+    Q.muestraTusDatos();
+    cout<<endl<<endl;
 
     ofstream ArchivoDeSalida("prueba.txt");
-
-    for(i=0;i<n;i++)
-        ArchivoDeSalida<<V[i]<<endl;
-
+    Q.guardaTusDatos(ArchivoDeSalida);
     ArchivoDeSalida.close();
 
 
+    Punto Otro;
+    cout<<"Otro";
+    Otro.muestraTusDatos();
+    cout<<endl<<endl;
 
     ifstream ArchivoDeEntrada("prueba.txt");
-    for(i=0;i<n;i++)
-        ArchivoDeEntrada>>V2[i];
-
+    Otro.cargaTusDatos(ArchivoDeEntrada);
     ArchivoDeEntrada.close();
 
-    for(i=0;i<n;i++)
-        cout<<"V2["<<i<<"] = "<<V[i]<<endl;
+    cout<<"Otro";
+    Otro.muestraTusDatos();
     cout<<endl<<endl;
 
     return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-

@@ -3,24 +3,37 @@
 using namespace std;
 
 int main(void){
-    ofstream ArchivoDeSalida("otro.txt");
+    ofstream ArchivoDeSalida("prueba.txt");
 
-
-    ArchivoDeSalida <<"Hola\nmundo!"<<endl
-                    <<"Otra linea debajo"<<endl
-                    <<123<<endl
-                    <<456.789<<endl
-                    <<'@'<<endl<<endl;
-
-
-    float a, b, c;
-    cout<<"Ingresa a ";cin>>a;
-    cout<<"Ingresa b ";cin>>b;
-    c=a+b;
-
-    cout           << a << " + " << b << " = " << c <<endl;
-    ArchivoDeSalida<< a << " + " << b << " = " << c <<endl;
-
+    ArchivoDeSalida << 123 << endl
+                    << 45.67 << endl
+                    << '@' << endl
+                    << "Ferrocarrilero" << endl;
     ArchivoDeSalida.close();
+
+
+    int entera;
+    float flotante;
+    char caracter;
+    string cadena;
+
+    cout<<"Entera: "<<entera<<endl
+        <<"Flotante: "<<flotante<<endl
+        <<"Caracter: "<<caracter<<endl
+        <<"Cadena: "<<cadena<<endl<<endl;
+
+    ifstream ArchivoDeEntrada("prueba.txt");
+    ArchivoDeEntrada>>entera
+                    >>flotante
+                    >>caracter
+                    >>cadena;
+    ArchivoDeEntrada.close();
+
+
+    cout<<"Entera: "<<entera<<endl
+        <<"Flotante: "<<flotante<<endl
+        <<"Caracter: "<<caracter<<endl
+        <<"Cadena: "<<cadena<<endl<<endl;
+
     return 0;
 }

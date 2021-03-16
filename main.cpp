@@ -1,42 +1,20 @@
+// string::clear
 #include <iostream>
-#include <stdlib.h>
-#include <time.h>
-#include <fstream>
-#include "Punto.h"
-using namespace std;
+#include <string>
 
-int main(void){
-    srand(time(NULL));
-
-    Punto Q;
-
-    cout<<"Q";
-    Q.muestraTusDatos();
-    cout<<endl<<endl;
-
-    Q.modificaTusDatos(rand()%100, rand()%100);
-
-    cout<<"Q";
-    Q.muestraTusDatos();
-    cout<<endl<<endl;
-
-    ofstream ArchivoDeSalida("prueba.txt");
-    Q.guardaTusDatos(ArchivoDeSalida);
-    ArchivoDeSalida.close();
-
-
-    Punto Otro;
-    cout<<"Otro";
-    Otro.muestraTusDatos();
-    cout<<endl<<endl;
-
-    ifstream ArchivoDeEntrada("prueba.txt");
-    Otro.cargaTusDatos(ArchivoDeEntrada);
-    ArchivoDeEntrada.close();
-
-    cout<<"Otro";
-    Otro.muestraTusDatos();
-    cout<<endl<<endl;
-
-    return 0;
+int main ()
+{
+  char c;
+  std::string str;
+  std::cout << "Please type some lines of text. Enter a dot (.) to finish:\n";
+  do {
+    c = std::cin.get();
+    str += c;
+    if (c=='\n')
+    {
+       std::cout << str;
+       str.clear();
+    }
+  } while (c!='.');
+  return 0;
 }

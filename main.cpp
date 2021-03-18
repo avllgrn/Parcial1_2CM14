@@ -1,42 +1,23 @@
 #include <iostream>
-#include <stdlib.h>
-#include <time.h>
-#include <fstream>
-#include "Punto.h"
 using namespace std;
 
 int main(void){
 
-    string cadena1, cadena2("Cadena dos"), enter;
+    string cadena;
+    int i, n;
 
-    cout<<"cadena1: "<<cadena1<<endl;
-    cout<<"cadena2: "<<cadena2<<endl;
+    cout<<"Ingresa una cadena ";
+    getline(cin, cadena);
+    n = cadena.size();
 
-
-    cout<<"cadena1 tiene "<<cadena1.size()<<" caracteres."<<endl;
-    cout<<"cadena2 tiene "<<cadena2.size()<<" caracteres."<<endl;
-
-    cout<<"cadena1 tiene "<<cadena1.length()<<" caracteres."<<endl;
-    cout<<"cadena2 tiene "<<cadena2.length()<<" caracteres."<<endl;
-
-    cout<<"cadena1 esta vacia? "<<cadena1.empty()<<endl;
-    cout<<"cadena2 esta vacia? "<<cadena2.empty()<<endl;
+    cout<<"Tu cadena: "<<cadena<<endl;
+    cout<<"Tiene "<<n<<" caracteres."<<endl<<endl;
 
 
-    cout<<"Ingresa solo un nombre ";
-    cin>>cadena1;
-    getline(cin,enter);
-    cout<<"Ingresa tus apellidos ";
-    getline(cin,cadena2);
-    cout<<"Hola, "<<cadena1<<" "<<cadena2<< "! =)"<<endl;
+    cout<<"cadena["<<3<<"] = "<<cadena.at(3)<<endl<<endl;
 
-
-    cadena1.clear();
-    cadena2.clear();
-    cout<<"cadena1: "<<cadena1<<endl;
-    cout<<"cadena2: "<<cadena2<<endl;
-
-
+    for(i=0;i<n;i++)
+        cout<<"cadena["<<i<<"] = "<<cadena.at(i)<<endl;
 
     return 0;
 }

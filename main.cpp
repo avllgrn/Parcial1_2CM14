@@ -1,20 +1,42 @@
-// string::clear
 #include <iostream>
-#include <string>
+#include <stdlib.h>
+#include <time.h>
+#include <fstream>
+#include "Punto.h"
+using namespace std;
 
-int main ()
-{
-  char c;
-  std::string str;
-  std::cout << "Please type some lines of text. Enter a dot (.) to finish:\n";
-  do {
-    c = std::cin.get();
-    str += c;
-    if (c=='\n')
-    {
-       std::cout << str;
-       str.clear();
-    }
-  } while (c!='.');
-  return 0;
+int main(void){
+
+    string cadena1, cadena2("Cadena dos"), enter;
+
+    cout<<"cadena1: "<<cadena1<<endl;
+    cout<<"cadena2: "<<cadena2<<endl;
+
+
+    cout<<"cadena1 tiene "<<cadena1.size()<<" caracteres."<<endl;
+    cout<<"cadena2 tiene "<<cadena2.size()<<" caracteres."<<endl;
+
+    cout<<"cadena1 tiene "<<cadena1.length()<<" caracteres."<<endl;
+    cout<<"cadena2 tiene "<<cadena2.length()<<" caracteres."<<endl;
+
+    cout<<"cadena1 esta vacia? "<<cadena1.empty()<<endl;
+    cout<<"cadena2 esta vacia? "<<cadena2.empty()<<endl;
+
+
+    cout<<"Ingresa solo un nombre ";
+    cin>>cadena1;
+    getline(cin,enter);
+    cout<<"Ingresa tus apellidos ";
+    getline(cin,cadena2);
+    cout<<"Hola, "<<cadena1<<" "<<cadena2<< "! =)"<<endl;
+
+
+    cadena1.clear();
+    cadena2.clear();
+    cout<<"cadena1: "<<cadena1<<endl;
+    cout<<"cadena2: "<<cadena2<<endl;
+
+
+
+    return 0;
 }

@@ -13,9 +13,14 @@ int main(void){
     cout<<"Tu cadena: "<<cadena1<<endl;
 
     for(i=0;i<n;i++){
-        cadena2.push_back(cadena1.at(i));
-        cout<<"cadena2: "<<cadena2<<endl;
+        if(!(cadena1.at(i)==' '))
+            cadena2.push_back(cadena1.at(i));
     }
+    cout<<"cadena1: "<<cadena1<<endl;
+    cout<<"cadena2: "<<cadena2<<endl;
+
+    cout<<cadena1.compare(cadena2)<<endl;
+    cout<<cadena2.compare(cadena1)<<endl;
 
     return 0;
 }
